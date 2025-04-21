@@ -22,5 +22,9 @@
         }
       </ul>
     }
+
   </main>
+  @for(user of users; track user.id){
+    <div>{{user.username}}</div>
+  }
 </div>
