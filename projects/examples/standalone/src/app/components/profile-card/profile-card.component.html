@@ -1,0 +1,29 @@
+@if (user) {
+<div class="profile-card">
+    <div class="avatar-name">
+        <img
+        
+         [src]="user.avatarUrl"
+         [alt]="user.lastName"
+         class="profile-card__avatar">
+        <div class="profile-card__name">
+            <strong class="h6">{{user.firstName }}  {{user.lastName}}</strong>
+            <span class="subtitle">{{user.username}}</span>
+        </div>
+        
+    </div>
+    <div class="profile-card__description">
+       {{user.description}}
+    </div>
+    <div class="profile-card__tags">
+        @for(skill of user.stack; track skill){
+            <div class="skill-tag">{{skill}}</div>
+        }
+    </div>
+    <div class="profile-card__acction-btn">
+        <button class="btn">Подписаться</button>
+    </div>
+</div>
+<pre></pre>
+{{user | json}}
+}

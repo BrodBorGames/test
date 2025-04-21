@@ -1,0 +1,85 @@
+{
+  "name": "keycloak-angular",
+  "version": "19.0.2",
+  "description": "Easy Keycloak integration for Angular applications.",
+  "scripts": {
+    "build": "ng build keycloak-angular --configuration production",
+    "test": "ng test keycloak-angular",
+    "lint": "ng lint && prettier -c .",
+    "lint:fix": "prettier --write .",
+    "serve:keycloak": "docker compose --project-directory projects/examples/docker up",
+    "serve:mockserver": "node projects/examples/mockserver/main.mjs",
+    "serve:example-ngmodule": "ng serve example-ngmodule",
+    "serve:example-standalone": "ng serve example-standalone",
+    "showcase:ngmodule": "npm run build && concurrently \"npm run serve:keycloak\" \"npm run serve:example-ngmodule\"",
+    "showcase:standalone": "npm run build && concurrently \"npm run serve:keycloak\"  \"npm run serve:mockserver\" \"npm run serve:example-standalone\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mauriciovigolo/keycloak-angular.git"
+  },
+  "author": {
+    "name": "Mauricio Gemelli Vigolo",
+    "email": "@mauriciovigolo.bsky.social",
+    "url": "https://github.com/mauriciovigolo"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mauriciovigolo/keycloak-angular/issues"
+  },
+  "homepage": "https://github.com/mauriciovigolo/keycloak-angular#readme",
+  "keywords": [
+    "angular",
+    "authentication",
+    "authorization",
+    "keycloak",
+    "keycloak-js"
+  ],
+  "dependencies": {
+    "@angular/animations": "^19.0.0",
+    "@angular/common": "^19.0.0",
+    "@angular/compiler": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "@angular/forms": "^19.0.0",
+    "@angular/platform-browser": "^19.0.0",
+    "@angular/platform-browser-dynamic": "^19.0.0",
+    "@angular/platform-server": "^19.0.0",
+    "@angular/router": "^19.0.0",
+    "@angular/ssr": "^19.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "keycloak-angular": "^19.0.2",
+    "keycloak-js": "^26.0.7",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.0.0",
+    "@angular-eslint/builder": "19.0.2",
+    "@angular-eslint/eslint-plugin": "19.0.2",
+    "@angular-eslint/eslint-plugin-template": "19.0.2",
+    "@angular-eslint/schematics": "19.0.2",
+    "@angular-eslint/template-parser": "19.0.2",
+    "@angular/cli": "^19.0.0",
+    "@angular/compiler-cli": "^19.0.0",
+    "@types/express": "^4.17.17",
+    "@types/jasmine": "^5.1.5",
+    "@types/node": "^20.17.10",
+    "@typescript-eslint/eslint-plugin": "^8.18.1",
+    "@typescript-eslint/parser": "^8.18.1",
+    "concurrently": "^9.1.0",
+    "eslint": "^9.17.0",
+    "jasmine-core": "^5.1.2",
+    "karma": "~6.4.3",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.1",
+    "karma-coverage-istanbul-reporter": "~3.0.3",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "^2.1.0",
+    "ng-packagr": "^19.0.0",
+    "prettier": "^3.4.2",
+    "typescript": "~5.6.2"
+  }
+}
