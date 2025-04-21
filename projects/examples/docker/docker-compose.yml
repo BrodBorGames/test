@@ -8,4 +8,5 @@ services:
       - 8080:8080
     volumes:
       - ./config/:/opt/keycloak/data/import:ro
+      - ./storage/keycloakdb.mv.db:/opt/keycloak/data/h2/keycloakdb.mv.db
     entrypoint: '/opt/keycloak/bin/kc.sh start-dev --import-realm'
